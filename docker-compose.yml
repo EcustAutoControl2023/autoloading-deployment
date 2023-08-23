@@ -1,0 +1,42 @@
+version: "1"
+services:
+  nginx: 
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "5000:5000"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./autoloading-frontend:/usr/share/nginx/html
+    networks:
+      - host-networks
+    depends_on:
+      - flask
+  flask:
+    build: ./autoloading-backend
+    networks:
+      - host-networks
+    depends_on:
+      - db
+    volumes:
+      - ./autoloading-backend:/usr/src/app/
+  db:
+    build: ./db
+    networks:
+      - host-networks
+    command: --default-authentication-plugin=caching_sha2_password
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db/initdb:/docker-entrypoint-initdb.d/:ro
+      - mysql:/var/lib/mysql 
+
+networks:
+  host-networks:
+    driver: bridge
+
+volumes:
+  mysql:
