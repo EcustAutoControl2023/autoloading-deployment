@@ -1,4 +1,4 @@
-version: "1"
+version: "3.3"
 services:
   nginx: 
     image: nginx:latest
@@ -35,11 +35,11 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db/initdb:/docker-entrypoint-initdb.d/:ro
-      - mysql:/var/lib/mysql 
+      - ./db/mysql:/var/lib/mysql 
 
 networks:
   host-networks:
     driver: bridge
 
-volumes:
-  mysql:
+# volumes:
+#   mysql:
