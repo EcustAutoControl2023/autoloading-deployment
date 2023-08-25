@@ -16,6 +16,7 @@ services:
       - flask
   flask:
     build: ./autoloading-backend
+    image: masarity/autoloading-backend:latest
     restart: always
     networks:
       - host-networks
@@ -25,6 +26,7 @@ services:
       - ./autoloading-backend:/usr/src/app/
   db:
     build: ./db
+    image: masarity/autoloading-db:latest
     restart: always
     networks:
       - host-networks
@@ -35,11 +37,11 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db/initdb:/docker-entrypoint-initdb.d/:ro
-      - ./db/mysql:/var/lib/mysql 
+      - mysql:/var/lib/mysql 
 
 networks:
   host-networks:
     driver: bridge
 
-# volumes:
-#   mysql:
+volumes:
+  mysql:
