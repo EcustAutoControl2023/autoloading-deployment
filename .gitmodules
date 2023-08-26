@@ -1,0 +1,8 @@
+[submodule "nginx/autoloading-frontend"]
+	path = nginx/autoloading-frontend
+	url = https://github.com/EcustAutoControl2023/autoloading-frontend.git
+	branch = main
+[submodule "autoloading-backend"]
+	path = autoloading-backend
+	url = https://github.com/EcustAutoControl2023/autoloading-backend.git
+	branch = main
