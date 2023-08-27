@@ -3,6 +3,7 @@
 
 ```shell
 cd autoloading-deployment && \
+docker compose build && \
 docker compose up -d
 ```
 
