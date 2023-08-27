@@ -1,21 +1,22 @@
-version: "1"
+version: "3.3"
 services:
   nginx: 
-    image: nginx:latest
+    build: ./nginx
+    # image: nginx:latest
+    image: masarity/autoloading-nginx:latest
     restart: always
     ports:
       - "80:80"
-      - "5000:5000"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./autoloading-frontend:/usr/share/nginx/html
     networks:
       - host-networks
     depends_on:
       - flask
   flask:
     build: ./autoloading-backend
+    image: masarity/autoloading-backend:latest
     restart: always
     networks:
       - host-networks
@@ -25,6 +26,7 @@ services:
       - ./autoloading-backend:/usr/src/app/
   db:
     build: ./db
+    image: masarity/autoloading-db:latest
     restart: always
     networks:
       - host-networks
