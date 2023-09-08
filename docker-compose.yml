@@ -6,7 +6,7 @@ services:
     image: masarity/autoloading-nginx:latest
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
