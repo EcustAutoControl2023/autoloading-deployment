@@ -7,4 +7,4 @@ docker compose build && \
 docker compose up -d
 ```
 
-浏览器访问localhost
+浏览器访问localhost:8000
