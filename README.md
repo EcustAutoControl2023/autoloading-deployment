@@ -8,11 +8,14 @@
 git clone --recursive https://github.com/EcustAutoControl2023/autoloading-deployment
 ```
 
-3. 终端运行命令
+2. 终端运行命令
 ```shell
 cd autoloading-deployment && \
 docker compose build && \
 docker compose up -d
 ```
 
-3. 浏览器访问localhost:8000
+3. 浏览器访问
+```
+localhost:8000
+```
