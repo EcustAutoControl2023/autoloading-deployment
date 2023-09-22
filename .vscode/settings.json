@@ -1,0 +1,31 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "learn",
+            "group": "test",
+            "database": "learn",
+            "username": "root",
+            "password": "root"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "autoloading",
+            "database": "D:\\Downloads\\Compressed\\autoloading-deployment-fzj_2\\autoloading-deployment-fzj\\autoloading-deployment\\autoloading-backend\\instance\\database.db"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "auto",
+            "database": "${workspaceFolder:autoloading-deployment}/autoloading-backend/instance/database.db"
+        }
+    ]
+}
