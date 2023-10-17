@@ -5,3 +5,5 @@ mysql/
 *.key
 *.pem
 *.csr
+
+.vscode/
