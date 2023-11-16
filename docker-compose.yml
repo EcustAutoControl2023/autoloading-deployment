@@ -23,7 +23,26 @@ services:
       - host-networks
     volumes:
       - ./autoloading-backend:/usr/src/app/
+  #   depends_on:
+  #     - db
+  # db:
+  #   build: ./db
+  #   image: masarity/autoloading-db:latest
+  #   restart: always
+  #   networks:
+  #     - host-networks
+  #   command: --default-authentication-plugin=caching_sha2_password
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #   volumes:
+  #     - ./db/initdb:/docker-entrypoint-initdb.d/:ro
+  #     - mysql:/var/lib/mysql
 
 networks:
   host-networks:
     driver: bridge
+
+# volumes:
+#   mysql:
